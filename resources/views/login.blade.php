@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Halaman Login</h1>
-    <form action="">
-        <div class="form-group">
-            <label for="">username</label>
-            <input type="text" name="username">
+@extends('layouts.app')
+@section('content')
+    <div class="card">
+        <div class="card-header">
+            Sign In
         </div>
-        <div class="form-group">
-            <label for="">password</label>
-            <input type="password" name="password">
+        <div class="card-body">
+            <form action="{{route('loginstore')}}" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="">username</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary">Login</button> <br>
+                <a href="{{route('register')}}" class="nav-link">belum punya akun ? daftar disini.</a>
+            </form>
         </div>
-        <button type="submit">Login</button> <br>
-        <a href="{{route('register')}}">belum punya akun ? daftar disini.</a>
-    </form>
-</body>
-</html>
+    </div>
+@endsection

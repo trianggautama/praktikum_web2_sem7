@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Halaman Register</h1>
-    <form action="">
-        <div class="form-group">
-            <label for="">name</label>
-            <input type="text" name="name">
+@extends('layouts.app')
+@section('content')
+    <div class="card">
+        <div class="card-header">
+            Register User
         </div>
-        <div class="form-group">
-            <label for="">username</label>
-            <input type="text" name="username">
+        <div class="card-body">
+            <form action="{{route('registerstore')}}" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="">Nama</label>
+                    <input type="text" name="nama" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">username</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary">register</button> <br>
+                <a href="{{route('login')}}" class="nav-link mt-2">Kembali ke halaman login</a>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="">password</label>
-            <input type="password" name="password">
-        </div>
-        <div class="form-group">
-            <label for="">confirm password</label>
-            <input type="password" name="confirm_password">
-        </div>
-        <button type="submit">register</button> <br>
-        <a href="{{route('login')}}">Kembali ke halaman login</a>
-    </form>
-</body>
-</html>
+    </div>
+@endsection
